@@ -90,9 +90,61 @@ The following sections outline the required API routes for this project, grouped
 
 ### Cart Management Endpoints
 
-... (follow the structure for cart management endpoints)
+#### `/api/cart/menu-items`
+- **Role**: Customer
+- **Method**: GET
+- **Purpose**: Returns current items in the cart for the current user token.
+
+#### `/api/cart/menu-items`
+- **Role**: Customer
+- **Method**: POST
+- **Purpose**: Adds the menu item to the cart. Sets the authenticated user as the user id for these cart items.
+
+#### `/api/cart/menu-items`
+- **Role**: Customer
+- **Method**: DELETE
+- **Purpose**: Deletes all menu items created by the current user token.
 
 ### Order Management Endpoints
 
-... (follow the structure for order management endpoints)
+#### `/api/orders`
+- **Role**: Customer
+- **Method**: GET
+- **Purpose**: Returns all orders with order items created by the current user.
+
+#### `/api/orders`
+- **Role**: Customer
+- **Method**: POST
+- **Purpose**: Creates a new order item for the current user. Gets current cart items from the cart endpoints and adds those items to the order items table. Then deletes all items from the cart for this user.
+
+#### `/api/orders/{orderId}`
+- **Role**: Customer
+- **Method**: GET
+- **Purpose**: Returns all items for the specified order id. If the order ID doesn’t belong to the current user, it displays an appropriate HTTP error status code.
+
+#### `/api/orders`
+- **Role**: Manager
+- **Method**: GET
+- **Purpose**: Returns all orders with order items by all users.
+
+#### `/api/orders/{orderId}`
+- **Role**: Customer
+- **Method**: PUT, PATCH
+- **Purpose**: Updates the order. A manager can use this endpoint to set a delivery crew to this order, and also update the order status to 0 or 1. If a delivery crew is assigned to this order and the status = 0, it means the order is out for delivery. If a delivery crew is assigned to this order and the status = 1, it means the order has been delivered.
+
+#### `/api/orders/{orderId}`
+- **Role**: Manager
+- **Method**: DELETE
+- **Purpose**: Deletes the specified order.
+
+#### `/api/orders`
+- **Role**: Delivery crew
+- **Method**: GET
+- **Purpose**: Returns all orders with order items assigned to the delivery crew.
+
+#### `/api/orders/{orderId}`
+- **Role**: Delivery crew
+- **Method**: PATCH
+- **Purpose**: Updates the order status to 0 or 1. The delivery crew will not be able to update anything else in this order.
+
 
