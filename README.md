@@ -55,8 +55,38 @@ The following sections outline the required API routes for this project, grouped
 ... (continue adding endpoints following the provided structure)
 
 ### User Group Management Endpoints
+### User Group Management Endpoints
 
-... (follow the structure for user group management endpoints)
+#### `/api/groups/manager/users`
+- **Role**: Manager
+- **Method**: GET
+- **Purpose**: Returns all managers.
+
+#### `/api/groups/manager/users`
+- **Role**: Manager
+- **Method**: POST
+- **Purpose**: Assigns the user in the payload to the manager group. Returns 201-Created.
+
+#### `/api/groups/manager/users/{userId}`
+- **Role**: Manager
+- **Method**: DELETE
+- **Purpose**: Removes the specified user from the manager group. Returns 200-Success if successful, 404-Not found if the user is not found.
+
+#### `/api/groups/delivery-crew/users`
+- **Role**: Manager
+- **Method**: GET
+- **Purpose**: Returns all delivery crew.
+
+#### `/api/groups/delivery-crew/users`
+- **Role**: Manager
+- **Method**: POST
+- **Purpose**: Assigns the user in the payload to the delivery crew group. Returns 201-Created.
+
+#### `/api/groups/delivery-crew/users/{userId}`
+- **Role**: Manager
+- **Method**: DELETE
+- **Purpose**: Removes the specified user from the delivery crew group. Returns 200-Success if successful, 404-Not found if the user is not found.
+
 
 ### Cart Management Endpoints
 
